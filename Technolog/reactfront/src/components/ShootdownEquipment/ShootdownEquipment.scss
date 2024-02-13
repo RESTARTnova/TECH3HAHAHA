@@ -1,0 +1,100 @@
+.modal{
+    width: 80%;
+    height:80%;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(212, 246, 255);
+    margin: 5% 10% 0% 10%;
+    display: flex;
+    position: relative;
+}
+.table-of-result{
+    border-top: 0;
+    padding-top: -5px;
+    height: auto;
+    max-height: 80%;
+    width:100%;
+    margin-bottom: 50px;
+    // position: fixed;
+    overflow-x:auto;
+    margin-top: 10px;
+    &::-webkit-scrollbar{
+        height: 70%;
+        margin-top: 10px;
+        background-color: rgb(255, 255, 255);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(213, 213, 213);
+    }
+    &::-webkit-scrollbar-button {
+        
+        height: 0px;
+        
+        
+    } 
+    table{
+        height: 100%;
+        border-spacing: 0;
+        border-top: 0;
+        padding-top: -5px;
+        top: 0;
+        
+        display:table;
+        width: 100% ;
+        table-layout:auto;
+        // overflow-x: auto;
+        tr, td{
+            height: auto;
+            margin: 0;
+            // padding: ;
+            font-size: 14px;
+            border: 1px rgb(226, 226, 226) solid;
+        }
+        thead{
+            
+            border-top: 0;
+            td{
+                // display: inline;
+            }
+            position: sticky;
+            top: 0px;
+        }
+        .tbody-of-result{
+            button{
+                border: none;
+                height:100%;
+                width: 100%;
+                &:hover{
+                    background-color: gainsboro;
+                }
+            }
+            
+            // height: 100%;
+            
+            // overflow-x: scroll;
+        }
+       
+    }
+}
+.closeModal{
+    // display: flex;
+   position: absolute;
+   top: 10px;
+   right: 10px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 72, 102);
+    
+}
+
+.requrs{
+    padding-left: 5px;
+}
+.shutdowns{
+    height:100%;
+    width: 100%;
+    
+}

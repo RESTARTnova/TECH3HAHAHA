@@ -17,8 +17,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+from . import views
+
 urlpatterns = [
+    path('', views.index),
     path('admin/', admin.site.urls),
     path("factory/", include('factory.urls')),
     path("tpm/", include("tpm.urls")),
-]
+    path('shutdown/', include('shutdown.urls')),
+    path('testing/', include("testing.urls")),
+    path('lineman/', include("lineman.urls")),    
+    path('shootdown_f', views.index),
+    path('tpm_f', views.index),
+] 
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,113 @@
+body{
+    z-index: 0;
+}
+.Filter{
+    min-width: 300px;
+    align-items: center;
+    display: block;
+
+    
+    position: relative;
+    z-index: 1;
+    
+    .filter-class{
+        position:absolute;
+        display: block;
+        z-index: 100;
+        min-width:150px;
+        border: 1px black solid;            
+        button{
+            width: 100%;
+            // border-radius: 3px;
+            border: 1px black solid;}
+        select{
+            -webkit-user-select: none;
+            user-select: none;
+            -ms-user-select: none;
+            &:active{
+                outline: none;
+                background-color: white !important;
+                color: black !important;
+            }
+            width: 100%;
+            .checked-option{
+                background-color: pink;
+            }
+            &::selection{
+                outline: none;
+                background-color: white !important;
+                color: black !important;
+            }
+            option{
+                
+                
+                line-height: 0px !important;
+                &::selection{
+                    outline: none;
+                    background-color: white !important;
+                    color: black !important;
+                }
+                &:optional {
+                    outline: none;
+                    background-color: white !important;
+                    color: black !important;
+                }
+                &:checked{
+                    outline: none;
+                    background-color: white !important;
+                    color: black !important;
+                }
+                &:focus{
+                    outline: none;
+                    background-color: white !important;
+                    color: black !important;
+                }
+                &:active{
+                    outline: none;
+                    background-color: white !important;
+                    color: black !important;
+                }
+                input{
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+        }
+    }
+    .filter-block{
+        width: 150px;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        .tab-header{
+            display: inline;
+        }
+        div{
+            display: flex;
+            button{
+            
+                border: none;
+                .filter-icon{
+                    width:16px;
+                    height:14px;
+                }
+                &:hover{
+                    background-color: aqua;
+                }
+                &:active {
+                    background-color: green;
+                }
+                &:first-child{
+                    margin-right: 5px;
+                    margin-left: 5px;
+                }
+            }
+        }
+        
+    }
+}    
+
+
+.no-show{
+    display: none;
+}

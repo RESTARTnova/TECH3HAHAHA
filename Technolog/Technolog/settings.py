@@ -10,11 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+# BASE_DIR = Path(__file__).resolve().parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-phf#p(&@2_h05uvf1eg4&$fea^t26g3_3itxqes9s4rx^awts&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tech.bzf.asu', '10.21.10.5', '10.21.10.12', '*']
+ALLOWED_HOSTS = ['tech.bzf.asu', '10.21.10.5', '10.21.10.12', '*', 'technolog.bzf.asu','localhost:3000']
 
 
 # Application definition
@@ -37,10 +38,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'factory',
     'reactfront',
     'rest_framework',
     'tpm',
+    'shutdown',
+    'testing',
+    'django_celery_beat',
+    'daemon',
+    'test1',
+    'test2',
+    'lineman',
+    # 'mobile',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +61,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = [
+        'http://localhost:8000',
+       'http://localhost:3000',
+       'http://technolog.bzf.asu:8000',
+       'https://technolog.bzf.asu',
+       'http://10.21.10.12',
+       'http://10.21.10.9',
+       'http://technolog.bzf.asu',
+        
 ]
 
 ROOT_URLCONF = 'Technolog.urls'
@@ -117,7 +141,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
@@ -129,9 +153,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
+    # os.path.join(BASE_DIR, "static"),
+    # BASE_DIR / 'static',
     BASE_DIR / 'reactfront/build/static/',
 ]
 
@@ -139,3 +167,9 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Celery settings
+CELERY_BROKER_URL = "redis://127.0.0.1:6379"
+CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379"
+# CELERY_TASK_TRACK_STARTED = True
+CELERY_BEAT_SCHEDULER='django_celery_beat.schedulers:DatabaseScheduler'

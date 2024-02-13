@@ -7,6 +7,7 @@ from factory.serializes import MachinesSerializer, NodesSerializer, ElementSeria
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
+
 class testResp(APIView):
     def get(self, request):
         # queryset = {"test_data": [

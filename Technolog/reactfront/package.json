@@ -3,15 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^2.0.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
+    "bootstrap": "^4.0.0",
+    "file-saver": "^2.0.5",
+    "help": "^3.0.2",
+    "moment": "^2.30.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-promise-tracker": "^2.1.1",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-redux": "^9.0.4",
+    "react-router-dom": "^6.14.2",
+    "react-scripts": "^5.0.1",
+    "redux": "^5.0.0",
+    "sass": "^1.64.0",
+    "underscore": "^1.13.6",
+    "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-modal": "^3.16.1"
   }
 }

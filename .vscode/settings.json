@@ -1,0 +1,19 @@
+{
+    "git.ignoreLimitWarning": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "workbench.sideBar.location": "left",
+    "workbench.editor.enablePreviewFromCodeNavigation": true,
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "editor.minimap.autohide": false,
+    "files.autoSave": "afterDelay",
+    "files.simpleDialog.enable": true,
+    "workbench.layoutControl.type": "both",
+    "workbench.panel.opensMaximized": "always",
+    "workbench.quickOpen.closeOnFocusLost": false,
+    "workbench.activityBar.location": "top",
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.editor.focusRecentEditorAfterClose": false,
+    "workbench.editor.pinnedTabsOnSeparateRow": false,
+    "workbench.editor.sharedViewState": true
+}

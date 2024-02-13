@@ -3,6 +3,9 @@ from django.db import models
 # Create your models here.
 class Factoryes(models.Model):
     name = models.CharField('Завод', max_length=255)
+
+    class Meta:
+        verbose_name_plural = "Заводы"
    
     def __str__(self):
         return self.name
@@ -10,6 +13,9 @@ class Factoryes(models.Model):
 class Departaments(models.Model):
     factory = models.ForeignKey(Factoryes, on_delete=models.CASCADE)
     name = models.CharField('Цех', max_length=255)
+
+    class Meta:
+        verbose_name_plural = "Цеха"
   
     def __str__(self):
         return self.name
@@ -22,6 +28,9 @@ class Aggregates(models.Model):
     date_of_last_TS = models.DateField('Последнее ТО', blank=True, null=True)
     date_of_last_TR = models.DateField('Последнее ТР',blank=True, null=True)
     description = models.TextField('Описание', blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = "Агрегаты"
    
     def __str__(self):
         return self.name
@@ -36,6 +45,9 @@ class Machines(models.Model):
     running_time = models.IntegerField("Время наработки",blank=True, null=True)
     description = models.TextField('Описание', blank=True, null=True)
 
+    class Meta:
+        verbose_name_plural = "Машины"
+
     def __str__(self):
         return self.name
     
@@ -46,6 +58,9 @@ class Nodes(models.Model):
     date_of_last_TR = models.DateField('Последнее ТР',blank=True, null=True)
     running_time = models.IntegerField("Время наработки",blank=True,null=True)
     description = models.TextField('Описание', blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = "Узлы"
 
     def __str__(self):
         return self.name
@@ -59,6 +74,9 @@ class Elements(models.Model):
     running_time = models.IntegerField("Время наработки",blank=True, null=True)
     description = models.TextField('Описание', blank=True, null=True)
 
+    class Meta:
+        verbose_name_plural = "Элементы"
+
     def __str__(self):
         return self.name
     
@@ -70,6 +88,9 @@ class Details(models.Model):
     date_of_last_TR = models.DateField('Последнее ТР',blank=True, null=True)
     running_time = models.IntegerField("Время наработки",blank=True, null=True)
     description = models.TextField('Описание', blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = "Детали"
 
     def __str__(self):
         return self.name

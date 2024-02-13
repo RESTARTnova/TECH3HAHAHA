@@ -1,91 +1,55 @@
 
-import './App.css';
-import axios from 'axios'
-import React, {useState, useEffect} from "react"
+import './App.scss';
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+// import Main from './components/main/Main'
+import Tpm from './components/tpm/Tpm'
+import ShootdownEquipment from './components/ShootdownEquipment/ShootdownEquipment'
+import Testing from './components/Testing/Testing'
+// Testing
 
-export default function App() {
-  const[post, setPost] = useState(null)
-  useEffect(() => {
-    axios.get('http://localhost:8000/factory/test_resp/').then((response)=>{
-      setPost(response.data)
-    })
-  },[setPost])
-  console.log(post)
 
-  if(!post) return null
-
+function App() {
+  console.log('App rendered')
   return (
-    <div>
-      <p>{post.name}</p>
-    </div>
+    <BrowserRouter>
+      <div>
+        <div className='header'>
+          <div className="logo"></div>
+                <ul>      
+                    <li><Link to="/shootdown_f">Главная</Link></li> 
+                    <li><Link to="/shootdown_f">База оборудования</Link></li> 
+                    <li><Link to="/shootdown_f">Технолог</Link></li> 
+                    {/* <li><button className='btn_main_menu' onClick={}></button></li> */}
+                    <li><Link to="/shootdown_f">Простои</Link></li> 
+                    <li><Link to="/tpm_f">TPM</Link></li> 
+                    <li><Link to="/testing_f">TEST</Link></li>               
+                </ul>
+          </div>
+          {/*trsjhytjs*/}
+          <div className='content'>
+              <div className='sidebar'>
+                <p>Some info</p>
+              </div>
+              <div className='routes'>
+              <Routes>
+                <Route path="tpm_f" element={<Tpm/>} /> 
+                <Route path="shootdown_f" element={<ShootdownEquipment/>} />
+                <Route path="testing_f" element={<Testing/>} />
+              </Routes>
+              </div>
+          </div>
+          
+          
+        
+          <div className="footer">
+              <p>МЕЧЕЛ</p>
+        </div>
+      </div>
+    </BrowserRouter>
+    
+    
   )
 
 }
-
-// function App() {
-
-//   const DataLoading = loadingData(testData)
-
-//   const [appState, setAppState] = useState(
-//     {
-//       loading: false,
-//       test_pers: null,
-//     }
-
-//   )
-
-//   useEffect (() => {
-//     setAppState({loading: true})
-//     console.log(" чтото ")
-//     const apiURL = 'http://localhost:8000/factory/test_resp/'
-//     axios.get(apiURL).then((resp) =>{
-//       console.log(resp)
-//       console.log(resp.data)
-//       const allMachines = resp.data
-//       // setAppState(allMachines)
-//       setAppState({
-//         loading: false,
-//         test_pers: allMachines,
-//       })
-
-//     })
-//   },[setAppState])
-//   console.log(appState)
-  
-
-//   return (
-//     <div className="App">
-//       <DataLoading isLoading={appState.loading} test_pers={appState.test_pers} />
-      
-//     </div>
-//   );
-// }
-
-// export default App;
-
-// import React from 'react';
-// import { trackPromise, usePromiseTracker } from 'react-promise-tracker';
-
-// const area = 'persons';
-// const apiUrl = 'http://localhost:8000/factory/test_resp/';
-
-// const App = () => {
-//     const { promiseInProgress } = usePromiseTracker({ area });
-//     const [ persons, setPersons ] = useState(null);
-
-//     useEffect(() => {
-//       trackPromise(axios.get(apiUrl), area).then(({ data }) => {
-//         setPersons(data);
-//       });
-//     }, [setPersons]);
-//     console.log(setPersons)
-//     return (
-//       <div className="app">
-//           {promiseInProgress
-//             ? <div>Подождите, данные загружаются!</div>
-//             : <div >{persons.name}</div> }
-//       </div>
-//     );
-//   }
-
-//   export default App;
+export default connect()(App)

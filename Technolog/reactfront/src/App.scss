@@ -1,0 +1,89 @@
+@import "./../src/components/vars";
+.header{
+
+    width: 100%;
+    height: 100px;
+    background-color: $light-color;
+    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    ul{
+        display: flex;
+        align-items: flex-end;
+        list-style: none;
+        margin-right: 50px;
+        margin-bottom: 0px;
+        margin-top: 20px;
+        background-color: bisque;
+        
+        li{
+            margin: 30px 2px 0 0;
+            // flex-direction: row;
+            // background-color: aqua;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            padding: 10px 10px 10px 10px;
+            
+            &:target::before{
+                background-color: $main-color;
+            }
+            &:active{
+                // color: black;
+                background-color: $main-color;
+            }
+            &:link{
+                color: $main-color;}
+            a{
+                border-top: 0px solid;
+                border-left: 0px solid;
+                border-right: 0px solid;
+                text-decoration: none;
+               
+                &:hover{
+                    color: black;
+                }
+                &:visited{
+                    color: black;
+                    
+                }
+                &:link{
+                    color: black;
+                    
+                }
+                &:active{
+                    color: black;
+                    
+                }
+              
+            }
+        }
+        
+    }
+}
+
+.footer{
+    height: 50px;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    color: whitesmoke;
+    margin-bottom: 0px;
+}
+
+.sidebar{
+    height: 100%;
+    width: 100px;
+    background-color: gainsboro;
+}
+
+.content{
+    // overflow: scroll;
+    display: flex;
+    flex-direction: row;
+    height: 85vh;
+}
+.routes{
+    height: 100%;
+    width: 100%;
+}
+

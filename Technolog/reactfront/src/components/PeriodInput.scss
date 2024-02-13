@@ -1,0 +1,35 @@
+.inputDate{
+    // width: 70px;
+    // height: 30px;
+}
+
+.periodInput{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    p{
+        display: flex;
+        // background-color: chartreuse;
+        align-items: center;
+        
+    }
+    button{
+        align-items: center;
+        background-color: gainsboro;
+        height: 25px;
+        border: none;
+        border-radius: 3px;
+        padding: 0 10px 0 10px;
+        box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
+        &:hover{
+            box-shadow: 0px 0px 0px 0px rgba(34, 60, 80, 0.6) inset;
+            background-color: aqua;
+        }
+        &:active{
+            background-color: gainsboro;
+            box-shadow: 9px 9px 13px -9px rgba(34, 60, 80, 0.6) inset;
+        }
+        
+    }
+    
+}

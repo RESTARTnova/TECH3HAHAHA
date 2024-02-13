@@ -1,0 +1,92 @@
+.modal-in{
+    display: flex;
+    flex-direction: column;
+    width:90%;
+    border: 1px black solid;
+    padding: 10px;
+    .init-info{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        p{
+            display: flex;
+            margin: 0 0 5px 0;
+        }
+
+    }
+    .pop-up{//отступов быть не должно по бокам, как и у recursion-select
+        // допускается использовать только один отступ сверху или снизу
+        display: flex;
+        flex-direction: column;
+        .recursion-select{
+            display: flex;
+            
+            margin-bottom: 15px;
+            .label-select{
+                display: flex;
+                width: 220px;
+            }
+            select{
+                display: flex;
+                margin-left: 5px;
+                background-color: rgb(240, 240, 240);
+                // background-color: #777;
+                height: 25px;
+                padding-left: 7px;
+                border: none;
+                border-color: red;
+                box-sizing:content-box;
+                outline: none;
+                &:not(:-internal-list-box){
+                    border: none;
+                }
+                // border: none;
+                &:hover{border: none;}
+                &:checked{
+                    border: none;
+                }
+                &::after{
+                    border: none;
+                }
+                &:active{
+                    border: none;
+                }
+                &:focus{
+                    border: none;
+                }
+                &:valid{
+                    border: none;
+                }
+                &:enabled{
+                    border: none;
+                }
+                option{
+                    border: none;
+                    &:checked{border: none;}
+                    &:enabled{
+                        border: none;
+                    }
+                    &:active{
+                        border: none;
+                    }
+                    &:focus-visible{
+                        border: none;
+                    }
+                }
+                // &:{
+                //     border:none;
+                // }
+                
+                
+                
+                
+
+            }
+        }
+
+
+    }
+    button{
+
+    }
+}
