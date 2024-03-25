@@ -9,57 +9,11 @@ export const Test = ({pres,name1}) => {
         const workBook = new ExcelJS.Workbook();
         const sheet1 = workBook.addWorksheet('Страница 1');
         var nomer = 0;
-        const re = [{header:'№ п/п',key:'pp'},{header:'Должность',key:'job'},{header:'Начало обхода',key:'start_time'},{header:'Конец обхода',key:'stop_time'},{header:'Комнаты',key:'name'},{header:'Действие',key:'remarks'},{header:'Замечание',key:'note'}];
+        const re = [{header:'№ п/п',key:'pp'},{header:'Должность',key:'job'},{header:'Начало обхода',key:'start_time'},{header:'Конец обхода',key:'stop_time'},{header:'Участки обхода',key:'name'},{header:'Действие',key:'remarks'},{header:'Замечание',key:'note'}];
         sheet1.columns = re;
         pres.forEach(e => {
-            // sheet1.addRow({login:e.login,job:e.job,start_time:e.start_time,stop_time:e.stop_time,name:'-',remarks:'-',note:'-'}).eachCell(cell=>{
-            //     cell.fill={
-            //         type: 'pattern',
-            //         pattern:'solid',
-            //         fgColor: {
-            //             argb: 'ff55d4ed'
-            //         }
-            //     }
-            //     cell.border={
-            //         top:{style: 'thin'},
-            //         right:{style: 'thin'},
-            //         bottom:{style: 'thin'},
-            //         left:{style: 'thin'}
-            //     }
-            // });
             e.rooms.forEach(u=>{
-                // sheet1.addRow({login:'-',job:'-',start_time:'-',stop_time:'-',name:u.name,remarks:'-',note:'-'}).eachCell(e=>{
-                //     e.fill={
-                //         type:'pattern',
-                //         pattern:'solid',
-                //         fgColor:{
-                //             argb:'ff5b86f5'
-                //         }
-                //     };
-                //     e.border={
-                //         top:{style: 'thin'},
-                //         right:{style: 'thin'},
-                //         bottom:{style: 'thin'},
-                //         left:{style: 'thin'}
-                //     }
-                // });
-                // sheet1.addRow({login:e.login,job:e.job,start_time:e.start_time,stop_time:e.stop_time,name:u.name});
                 u.remarks.forEach(o=>{
-                    // sheet1.addRow({login:'-',job:'-',start_time:'-',stop_time:'-',name:'-',remarks:o.name,note:o.note}).eachCell(e=>{
-                    //     e.fill={
-                    //         type:'pattern',
-                    //         pattern:'solid',
-                    //         fgColor: {
-                    //             argb: 'ff8c69f5'
-                    //         }
-                    //     };
-                    //     e.border={
-                    //         top:{style: 'thin'},
-                    //         right:{style: 'thin'},
-                    //         bottom:{style: 'thin'},
-                    //         left:{style: 'thin'}
-                    //     }
-                    // });
                     sheet1.addRow({pp:nomer,job:e.job,start_time:e.start_time,stop_time:e.stop_time,name:u.name,remarks:o.name,note:o.note});
                     nomer++;
                 })
@@ -205,8 +159,7 @@ export const Test = ({pres,name1}) => {
             }
         })
         workBook.xlsx.writeBuffer().then(succs=>{
-            var a = succs;
-            const blob = new Blob([a],{type: fileType});
+            const blob = new Blob([succs],{type: fileType});
             const url = URL.createObjectURL(blob);
             const a1 = document.createElement('a');
             a1.href = url;

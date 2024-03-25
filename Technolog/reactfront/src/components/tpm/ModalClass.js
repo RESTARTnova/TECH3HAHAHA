@@ -18,21 +18,18 @@ export default function ModalClass(data) {
         test();
     },[]);
 
-    var dataMass = [];
-
-    var anotherMass = [];
-
     const getLogs = () => {
         axios.post('http://localhost:8000/lineman/log',{"ids":mass.rep_logs})
         .then(succs=>{
+            console.log(succs);
             createLogs(succs.data).then(succs1=>{setLog(succs1)});
         })
     }
 
     const createLogs = (data) => {
-        var massw;
         return new Promise((resolve, reject) => {
-            massw = data.map((e)=>{
+            // Promise.all(data)
+            var massw = data.map((e)=>{
                 return(
                     <tr style={{backgroundColor:'black'}}>
                         <td>{e.timel}</td>
@@ -58,14 +55,11 @@ export default function ModalClass(data) {
     }
 
     const parseData = (rooms)=>{
-        var kli = [];
         var result = [];
-        var ij = 1;
         for (let i = 0; i < rooms.length; i++) {
-            ij = 1;
-            ij = axios.post('http://technolog.bzf.asu/lineman/kys/action',{'action' : rooms[i].actions_r}).then((response)=>{
+            const ij = axios.post('http://technolog.bzf.asu/lineman/kys/action',{'action' : rooms[i].actions_r}).then((response)=>{
             // ij = axios.post('http://localhost:8000/lineman/kys/action',{'action' : rooms[i].actions_r}).then((response)=>{
-                kli = [];
+                var kli = [];
                 for (let i = 0; i < response.data.length; i++) {
                     kli.push(response.data[i]);
                 }
@@ -77,10 +71,11 @@ export default function ModalClass(data) {
     }
 
     const createData = (needMass) => {
-        dataMass = [];
+        var dataMass = [];
         for(const l of needMass){
             dataMass.push(l);
         }
+        return dataMass;
     }
 
     const test = () => {
@@ -88,12 +83,11 @@ export default function ModalClass(data) {
     }
 
     const goingInCycle = () => {
-        anotherMass = [];
+        var anotherMass = [];
         return new Promise((resolve, reject) => {
             Promise.all(info2).then(succs=>{
                 succs.map((e)=>{
-                    createData(e);
-                    anotherMass.push(dataMass);
+                    anotherMass.push(createData(e));
                 });
             });
             setTimeout(()=>{resolve(anotherMass)},300);
@@ -134,13 +128,13 @@ export default function ModalClass(data) {
     return(
         <div style={{display:'flex',flexDirection:'row'}}>
             <div>
-                <p style={{fontSize:"x-large"}}>Комнаты</p>
+                <p style={{fontSize:"x-large"}}>Участки обхода</p>
                 <table>
                     {table}
                 </table>
             </div>
             <div>
-                <p style={{fontSize:"x-large"}}>История</p>
+                <p style={{fontSize:"x-large"}}>История обхода</p>
                 {log}
             </div>
         </div>

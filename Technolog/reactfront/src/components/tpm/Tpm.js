@@ -53,7 +53,6 @@ export default function Tpm(){
 
     const fetchData = () => {
         axios.post('http://technolog.bzf.asu/lineman/repots/filter/room',{ 'rep_start_time': selects, 'rep_stop_time': selects1 })
-        // axios.get('http://localhost:8000/lineman/repots/filter/room').then(succs=>{console.log(succs);});
         // axios.post('http://localhost:8000/lineman/repots/filter/room',{ 'rep_start_time': selects, 'rep_stop_time': selects1 })
         .then(response=>parseResponse(response)
         .then(succs=>prepairTableBody(succs))
