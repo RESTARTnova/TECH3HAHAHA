@@ -8,10 +8,10 @@ export const ExportToExcel = ({ apiData, fileName }) => {
   const fileExtension = ".xlsx";
 
   const exportToCSV = (apiData, fileName) => {
-    // const ws = XLSX.utils.json_to_sheet(apiData);
+    const wb = XLSX.utils.book_new();
     const ws = XLSX.utils.aoa_to_sheet(apiData);
-    const wb = { Sheets: { data: ws }, SheetNames: ["data"] };
-    const excelBuffer = XLSX.write(wb, { bookType: "xlsx", type: "array" });
+    const wb1 = { Sheets: { data: ws }, SheetNames: ["data"] };
+    const excelBuffer = XLSX.write(wb1, { bookType: "xlsx", type: "array" });
     const data = new Blob([excelBuffer], { type: fileType });
     FileSaver.saveAs(data, fileName + fileExtension);
   };

@@ -1,0 +1,15 @@
+.excelButton{
+    width: 200px;
+    height: 70px;
+    font-size: larger;
+    margin-left: 20px;
+    border-color: rgba($color: #000000, $alpha: 0);
+    transition-property: background-color;
+    transition-duration: 0.4s;
+    &:hover{
+        background-color: gray;
+    }
+    &:active{
+        background-color: gainsboro;
+    }
+}

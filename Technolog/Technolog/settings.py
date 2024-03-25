@@ -68,13 +68,13 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ORIGIN_WHITELIST = [
         'http://localhost:8000',
-       'http://localhost:3000',
-       'http://technolog.bzf.asu:8000',
-       'https://technolog.bzf.asu',
-       'http://10.21.10.12',
-       'http://10.21.10.9',
-       'http://technolog.bzf.asu',
-        
+        'http://localhost:3000',
+        'http://technolog.bzf.asu:8000',
+        'https://technolog.bzf.asu',
+        'http://10.21.10.12',
+        'http://10.21.10.9',
+        'http://technolog.bzf.asu',
+        'http://10.21.10.12:8000',
 ]
 
 ROOT_URLCONF = 'Technolog.urls'

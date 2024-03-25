@@ -1,27 +1,54 @@
+from dataclasses import fields
 from rest_framework import serializers
-from lineman.models import Bypass, Reports, Systems, Users
+from lineman.models import   NFC, Actions, ActionsRoom, Durability,  Job_titles, Logs, ReportsRoom, Rooms, RoomsReport, Users
 
-class SystemsSerializer(serializers.ModelSerializer):
-    class Meta:
-      model = Systems
-      fields = '__all__'
-
-class BypassSerializer(serializers.ModelSerializer):
-    class Meta:
-       model = Bypass
-       fields = '__all__'
 
 class UsersSerializer(serializers.ModelSerializer):
-    login = serializers.CharField(max_length=128,required=False)
-    password = serializers.CharField(max_length=255,required=False)
-    class Meta:
-       model = Users
-       fields = '__all__'
+      class Meta:
+         model = Users
+         fields = '__all__'
 
-class ReportsSerializer(serializers.ModelSerializer):
+class ReportsRoomSerializer(serializers.ModelSerializer):
    class Meta:
-      model = Reports
+      model = ReportsRoom
       fields = '__all__'
 
+class JobsSerializer(serializers.ModelSerializer):
+   class Meta:
+      model = Job_titles
+      fields = '__all__'
 
-    
+class ActionSerializer(serializers.ModelSerializer):
+   class Meta:
+      model = Actions
+      fields = '__all__'
+
+class RoomsSerializer(serializers.ModelSerializer):
+   class Meta:
+      model = Rooms
+      fields = '__all__'
+
+class RoomsSpecialSerializer(serializers.ModelSerializer):
+   class Meta:
+      model = RoomsReport
+      fields = '__all__'
+
+class ActionsSerializer(serializers.ModelSerializer):
+   class Meta:
+      model = ActionsRoom
+      fields = '__all__'
+
+class DurabilitySerializer(serializers.ModelSerializer):
+   class Meta:
+      model = Durability
+      fields = '__all__'
+
+class NFCSerializer(serializers.ModelSerializer):
+   class Meta:
+      model = NFC
+      fields = '__all__'
+
+class LogsSerializer(serializers.ModelSerializer):
+   class Meta:
+      model = Logs
+      fields = '__all__'

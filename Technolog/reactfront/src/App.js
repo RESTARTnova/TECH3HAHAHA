@@ -1,6 +1,6 @@
 
 import './App.scss';
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, Link, NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 // import Main from './components/main/Main'
 import Tpm from './components/tpm/Tpm'
@@ -17,13 +17,13 @@ function App() {
         <div className='header'>
           <div className="logo"></div>
                 <ul>      
-                    <li><Link to="/shootdown_f">Главная</Link></li> 
-                    <li><Link to="/shootdown_f">База оборудования</Link></li> 
-                    <li><Link to="/shootdown_f">Технолог</Link></li> 
+                    <li><NavLink to="/shootdown_f">Главная</NavLink></li> 
+                    <li><NavLink to="/shootdown_f">База оборудования</NavLink></li> 
+                    <li><NavLink to="/shootdown_f">Технолог</NavLink></li> 
                     {/* <li><button className='btn_main_menu' onClick={}></button></li> */}
-                    <li><Link to="/shootdown_f">Простои</Link></li> 
-                    <li><Link to="/tpm_f">TPM</Link></li> 
-                    <li><Link to="/testing_f">TEST</Link></li>               
+                    <li><NavLink to="/shootdown_f">Простои</NavLink></li> 
+                    <li><NavLink to="/tpm_f">TPM</NavLink></li> 
+                    <li><NavLink to="/testing_f">TEST</NavLink></li>               
                 </ul>
           </div>
           {/*trsjhytjs*/}

@@ -1,9 +1,14 @@
 from django.contrib import admin
 
-from .models import Bypass, Job_titles, Reports, Systems, Users
+from .models import NFC, Durability, Job_titles, Logs, ReportsRoom, Users, Actions, Rooms, ActionsRoom, RoomsReport
 # Register your models here.
 admin.site.register(Users)
-admin.site.register(Systems)
-admin.site.register(Bypass)
-admin.site.register(Reports)
 admin.site.register(Job_titles)
+admin.site.register(Actions)
+admin.site.register(Rooms)
+admin.site.register(ActionsRoom)
+admin.site.register(RoomsReport)
+admin.site.register(Durability)
+admin.site.register(NFC)
+admin.site.register(Logs)
+admin.site.register(ReportsRoom)

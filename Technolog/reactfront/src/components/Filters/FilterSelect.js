@@ -23,7 +23,7 @@ export default function FilterSelect(props){
             setClassVis('filter-class')
         }
         else {
-           
+            
             setClassVis('no-show')
         }
     }, [props.isVisible, flag]
