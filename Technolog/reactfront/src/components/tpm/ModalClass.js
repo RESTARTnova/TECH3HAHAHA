@@ -40,7 +40,7 @@ export default function ModalClass(data) {
                     </tr>
                 )
             });
-            setTimeout(()=>{resolve(massw)},2000);
+            setTimeout(()=>{resolve(massw)},600);
         })
     }
 
@@ -96,7 +96,7 @@ export default function ModalClass(data) {
                     anotherMass.push(dataMass);
                 });
             });
-            setTimeout(()=>{resolve(anotherMass)},1000);
+            setTimeout(()=>{resolve(anotherMass)},300);
         })
     }
 
@@ -111,7 +111,7 @@ export default function ModalClass(data) {
                         </td>
                     )
                 })
-            setTimeout(()=>{resolve(eh)},1000);
+            setTimeout(()=>{resolve(eh)},300);
         })
     }
 

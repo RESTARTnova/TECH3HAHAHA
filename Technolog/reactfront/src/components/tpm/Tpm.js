@@ -68,7 +68,7 @@ export default function Tpm(){
                 fetchDataRoom(dataFun[e].rep_rooms).then(succs => {dataFun[e].rep_names = succs[0];dataFun[e].rep_mass = succs[1]});
             }
             setExcel(d);
-            setTimeout(()=>{resolve(dataFun);},1000);
+            setTimeout(()=>{resolve(dataFun);},500);
         })
     }
 
@@ -163,7 +163,7 @@ export default function Tpm(){
                     )
                 });
                 setTableBody(data);
-            },2000);
+            },500);
         }
     }
 
